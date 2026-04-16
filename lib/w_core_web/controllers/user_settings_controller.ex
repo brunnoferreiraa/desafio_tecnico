@@ -28,7 +28,7 @@ defmodule WCoreWeb.UserSettingsController do
         conn
         |> put_flash(
           :info,
-          "A link to confirm your email change has been sent to the new address."
+          "Um link para confirmar a alteração do e-mail foi enviado para o novo endereço."
         )
         |> redirect(to: ~p"/users/settings")
 
@@ -47,7 +47,7 @@ defmodule WCoreWeb.UserSettingsController do
     case Accounts.update_user_password(user, current_password, user_params) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "Password updated successfully.")
+        |> put_flash(:info, "Senha atualizada com sucesso.")
         |> put_session(:user_return_to, ~p"/users/settings")
         |> UserAuth.log_in_user(user)
 
@@ -63,12 +63,12 @@ defmodule WCoreWeb.UserSettingsController do
     case Accounts.update_user_email(conn.assigns.current_user, token) do
       :ok ->
         conn
-        |> put_flash(:info, "Email changed successfully.")
+        |> put_flash(:info, "E-mail alterado com sucesso.")
         |> redirect(to: ~p"/users/settings")
 
       :error ->
         conn
-        |> put_flash(:error, "Email change link is invalid or it has expired.")
+        |> put_flash(:error, "O link para alteração de e-mail é inválido ou expirou.")
         |> redirect(to: ~p"/users/settings")
     end
   end

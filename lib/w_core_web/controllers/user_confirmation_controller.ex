@@ -18,7 +18,7 @@ defmodule WCoreWeb.UserConfirmationController do
     conn
     |> put_flash(
       :info,
-      "If your email is in our system and it has not been confirmed yet, you will receive an email with instructions shortly."
+      "Se o seu e-mail estiver no nosso sistema e ainda não tiver sido confirmado, você receberá em breve um e-mail com instruções."
     )
     |> redirect(to: ~p"/")
   end
@@ -31,7 +31,7 @@ defmodule WCoreWeb.UserConfirmationController do
     case Accounts.confirm_user(token) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "User confirmed successfully.")
+        |> put_flash(:info, "Usuário confirmado com sucesso.")
         |> redirect(to: ~p"/")
 
       :error ->
@@ -39,7 +39,7 @@ defmodule WCoreWeb.UserConfirmationController do
           redirect(conn, to: ~p"/")
         else
           conn
-          |> put_flash(:error, "User confirmation link is invalid or it has expired.")
+          |> put_flash(:error, "O link de confirmação é inválido ou expirou.")
           |> redirect(to: ~p"/")
         end
     end

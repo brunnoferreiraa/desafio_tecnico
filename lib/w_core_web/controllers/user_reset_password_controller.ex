@@ -21,7 +21,7 @@ defmodule WCoreWeb.UserResetPasswordController do
     conn
     |> put_flash(
       :info,
-      "If your email is in our system, you will receive instructions to reset your password shortly."
+      "Se o seu e-mail estiver no nosso sistema, você receberá em breve instruções para redefinir sua senha."
     )
     |> redirect(to: ~p"/")
   end
@@ -39,7 +39,7 @@ defmodule WCoreWeb.UserResetPasswordController do
     case Accounts.reset_user_password(conn.assigns.user, user_params) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "Password reset successfully.")
+        |> put_flash(:info, "Senha redefinida com sucesso.")
         |> redirect(to: ~p"/users/log_in")
 
       {:error, changeset} ->
@@ -54,7 +54,7 @@ defmodule WCoreWeb.UserResetPasswordController do
       assign(conn, :user, user)
     else
       conn
-      |> put_flash(:error, "Reset password link is invalid or it has expired.")
+      |> put_flash(:error, "O link de redefinição de senha é inválido ou expirou.")
       |> redirect(to: ~p"/")
       |> halt()
     end

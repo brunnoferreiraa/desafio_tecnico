@@ -20,7 +20,7 @@ defmodule WCoreWeb.UserRegistrationController do
           )
 
         conn
-        |> put_flash(:info, "Account created successfully.")
+        |> put_flash(:info, "Conta criada com sucesso.")
         |> UserAuth.log_in_user(user)
 
       {:error, %Ecto.Changeset{} = changeset} ->

@@ -107,7 +107,7 @@ defmodule WCoreWeb.UserAuth do
       conn
     else
       conn
-      |> put_flash(:error, "You must log in to access this page.")
+      |> put_flash(:error, "Você precisa entrar para acessar esta página.")
       |> maybe_store_return_to()
       |> redirect(to: ~p"/users/log_in")
       |> halt()
