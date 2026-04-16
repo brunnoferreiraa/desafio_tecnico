@@ -1,0 +1,10 @@
+_build
+deps
+.elixir_ls
+.git
+tmp
+cover
+doc
+w_core_dev.db*
+w_core_test.db*
+

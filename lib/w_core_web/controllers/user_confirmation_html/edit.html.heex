@@ -1,0 +1,13 @@
+<section class="auth-shell">
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Confirmar conta</h2>
+      <p>Clique no botao para validar sua conta.</p>
+    </header>
+
+    <.form for={%{}} as={:user} action={~p"/users/confirm/#{@token}"} method="post" class="auth-form">
+      <.button type="submit" class="btn-primary">Confirmar conta</.button>
+    </.form>
+  </div>
+</section>
+

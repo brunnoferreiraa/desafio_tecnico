@@ -1,0 +1,34 @@
+<section class="auth-shell">
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Configuracoes da conta</h2>
+      <p>Atualize email ou senha com confirmacao de seguranca.</p>
+    </header>
+
+    <.form for={@email_form} action={~p"/users/settings?action=update_email"} method="put" class="auth-form">
+      <.input field={@email_form[:email]} type="email" label="Novo email" required />
+      <.input field={@email_form[:current_password]} type="password" label="Senha atual" required />
+      <.button type="submit" class="btn-primary">Atualizar email</.button>
+    </.form>
+
+    <hr class="settings-divider" />
+
+    <.form
+      for={@password_form}
+      action={~p"/users/settings?action=update_password"}
+      method="put"
+      class="auth-form"
+    >
+      <.input field={@password_form[:password]} type="password" label="Nova senha" required />
+      <.input
+        field={@password_form[:password_confirmation]}
+        type="password"
+        label="Confirmar nova senha"
+        required
+      />
+      <.input field={@password_form[:current_password]} type="password" label="Senha atual" required />
+      <.button type="submit" class="btn-primary">Atualizar senha</.button>
+    </.form>
+  </div>
+</section>
+

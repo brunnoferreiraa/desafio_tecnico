@@ -1,0 +1,30 @@
+<section class="auth-shell">
+  <aside class="auth-aside">
+    <p class="auth-kicker">Planta 42</p>
+    <h1>Cadastro de operador</h1>
+    <p>Crie sua credencial para operar a sala de controle da planta industrial.</p>
+    <ul class="auth-points">
+      <li>Acesso autenticado ao dashboard</li>
+      <li>Visibilidade de estado por maquina</li>
+      <li>Historico resiliente em caso de reinicio</li>
+    </ul>
+  </aside>
+
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Criar conta</h2>
+      <p>Use um email corporativo e senha forte para iniciar.</p>
+    </header>
+
+    <.form for={@form} id="registration_form" action={~p"/users/register"} class="auth-form">
+      <.input field={@form[:email]} type="email" label="Email" placeholder="operador@planta42.com" required />
+      <.input field={@form[:password]} type="password" label="Senha (12+ caracteres)" required />
+      <.button type="submit" class="btn-primary">Criar conta</.button>
+    </.form>
+
+    <p class="auth-alt">
+      Ja possui conta?
+      <.link href={~p"/users/log_in"}>Entrar</.link>
+    </p>
+  </div>
+</section>

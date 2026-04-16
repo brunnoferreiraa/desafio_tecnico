@@ -1,0 +1,14 @@
+<section class="auth-shell">
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Esqueci minha senha</h2>
+      <p>Informe seu email para receber o link de redefinicao.</p>
+    </header>
+
+    <.form for={@form} action={~p"/users/reset_password"} class="auth-form">
+      <.input field={@form[:email]} type="email" label="Email" required />
+      <.button type="submit" class="btn-primary">Enviar instrucoes</.button>
+    </.form>
+  </div>
+</section>
+

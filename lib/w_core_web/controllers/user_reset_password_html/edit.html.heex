@@ -1,0 +1,14 @@
+<section class="auth-shell">
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Redefinir senha</h2>
+      <p>Digite sua nova senha.</p>
+    </header>
+
+    <.form for={@form} action={~p"/users/reset_password/#{@token}"} method="put" class="auth-form">
+      <.input field={@form[:password]} type="password" label="Nova senha" required />
+      <.input field={@form[:password_confirmation]} type="password" label="Confirmar nova senha" required />
+      <.button type="submit" class="btn-primary">Atualizar senha</.button>
+    </.form>
+  </div>
+</section>

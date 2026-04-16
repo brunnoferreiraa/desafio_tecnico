@@ -1,0 +1,40 @@
+<section class="auth-shell">
+  <aside class="auth-aside">
+    <p class="auth-kicker">W-Core</p>
+    <h1>Sala de Comando da Planta 42</h1>
+    <p>Monitoramento continuo de edge devices com reacao imediata a falhas criticas.</p>
+    <ul class="auth-points">
+      <li>Alertas de status em tempo real</li>
+    </ul>
+  </aside>
+
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Entrar</h2>
+      <p>Use sua credencial para abrir o dashboard operacional.</p>
+    </header>
+
+    <.form for={@form} id="login_form" action={~p"/users/log_in"} class="auth-form">
+      <.input field={@form[:email]} type="email" label="Email" placeholder="operador@planta42.com" required />
+      <.input field={@form[:password]} type="password" label="Senha" required />
+      <label class="remember-me">
+        <input type="checkbox" name="remember_me" value="true" />
+        Manter sessao ativa
+      </label>
+      <p class="auth-help">
+        <.link href={~p"/users/reset_password"}>Esqueci minha senha</.link>
+      </p>
+
+      <%= if @error_message do %>
+        <p class="form-error"><%= @error_message %></p>
+      <% end %>
+
+      <.button type="submit" class="btn-primary">Entrar</.button>
+    </.form>
+
+    <p class="auth-alt">
+      Primeira vez por aqui?
+      <.link href={~p"/users/register"}>Criar conta</.link>
+    </p>
+  </div>
+</section>

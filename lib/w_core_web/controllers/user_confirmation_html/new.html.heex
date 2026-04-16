@@ -1,0 +1,13 @@
+<section class="auth-shell">
+  <div class="auth-panel">
+    <header class="auth-header">
+      <h2>Reenviar confirmacao</h2>
+      <p>Informe seu email para receber um novo link de confirmacao.</p>
+    </header>
+
+    <.form for={@form} action={~p"/users/confirm"} class="auth-form">
+      <.input field={@form[:email]} type="email" label="Email" required />
+      <.button type="submit" class="btn-primary">Reenviar</.button>
+    </.form>
+  </div>
+</section>
